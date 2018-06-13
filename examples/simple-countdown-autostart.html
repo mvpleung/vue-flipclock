@@ -1,0 +1,31 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="../src/flipclock.css">
+
+
+
+  <script src="../src/flipclock.js"></script>
+</head>
+
+<body>
+  <div class="clock" style="margin:2em;"></div>
+
+  <script type="text/javascript">
+    var clock;
+
+    $(document).ready(function () {
+
+      // Instantiate a counter
+      clock = new FlipClock($('.clock'), 10, {
+        clockFace: 'Counter',
+        autoStart: true,
+        countdown: true
+      });
+
+    });
+  </script>
+
+</body>
+
+</html>

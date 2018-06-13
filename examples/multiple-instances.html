@@ -1,0 +1,37 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="../src/flipclock.css">
+
+
+
+  <script src="../src/flipclock.js"></script>
+</head>
+
+<body>
+
+  <div class="clock-1" style="margin:2em;"></div>
+
+  <div class="clock-2" style="margin:2em;"></div>
+
+  <div class="message"></div>
+
+  <script type="text/javascript">
+    var clocks = [];
+
+    $(document).ready(function () {
+
+      clocks.push($('.clock-1').FlipClock({
+        clockFace: 'MinuteCounter'
+      }));
+
+      clocks.push($('.clock-2').FlipClock({
+        clockFace: 'HourlyCounter'
+      }));
+
+    });
+  </script>
+
+</body>
+
+</html>

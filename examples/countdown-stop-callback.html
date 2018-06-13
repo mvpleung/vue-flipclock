@@ -1,0 +1,36 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="../src/flipclock.css">
+
+
+
+  <script src="../src/flipclock.js"></script>
+</head>
+
+<body>
+  <div class="clock" style="margin:2em;"></div>
+  <div class="message"></div>
+
+  <script type="text/javascript">
+    var clock;
+
+    $(document).ready(function () {
+
+      clock = $('.clock').FlipClock(10, {
+        clockFace: 'MinuteCounter',
+        countdown: true,
+        callbacks: {
+          stop: function () {
+            $('.message').html('The clock has stopped!');
+          }
+        }
+      });
+
+    });
+
+  </script>
+
+</body>
+
+</html>

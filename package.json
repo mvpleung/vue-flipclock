@@ -1,0 +1,21 @@
+{
+  "name": "@mvpleung/flipclock",
+  "version": "0.0.1",
+  "description": "flipclock for vue, 删除 jquery 依赖",
+  "email": "mvpleung@gmail.com",
+  "author": "mvpleung <mvpleung@gmail.com>",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mvpleung/vue-flipclock"
+  },
+  "bugs": {
+    "url": "https://github.com/mvpleung/vue-flipclock/issues"
+  },
+  "keywords": [
+    "vue",
+    "flipclock",
+    "翻页时钟"
+  ]
+}
