@@ -1,5 +1,7 @@
 # FlipClock
 
+flipclock for Vue，Rejecting jQuery dependency
+
 ### Installation
 
 FlipClock.js can be installed in the following ways:
@@ -19,7 +21,7 @@ Website and documentation at http://flipclockjs.com/
 ### Vue Demo
 
 ```js
-import { FlipClock } from 'vue-flipclock';
+import { FlipClock } from '@mvpleung/flipclock';
 export default {
   ...
   components: {
