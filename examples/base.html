@@ -16,7 +16,7 @@
       autoStart: false,
       callbacks: {
         stop: function () {
-          $('.message').html('The clock has stopped!')
+          document.querySelector('.message').innerHTML = 'The clock has stopped!';
         }
       }
     });

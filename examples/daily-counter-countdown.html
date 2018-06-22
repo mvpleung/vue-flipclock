@@ -15,15 +15,16 @@
   <script type="text/javascript">
     var clock;
 
-    $(document).ready(function () {
+    document.addEventListener('DOMContentLoaded', function () {
+      document.removeEventListener('DOMContentLoaded', arguments.callee, false);
       var clock;
 
-      clock = $('.clock').FlipClock({
+      clock = new FlipClock(document.querySelector('.clock'), {
         clockFace: 'DailyCounter',
         autoStart: false,
         callbacks: {
           stop: function () {
-            $('.message').html('The clock has stopped!')
+            document.querySelector('.message').innerHTML = 'The clock has stopped!';
           }
         }
       });

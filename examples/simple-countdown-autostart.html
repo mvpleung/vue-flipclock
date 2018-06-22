@@ -14,15 +14,15 @@
   <script type="text/javascript">
     var clock;
 
-    $(document).ready(function () {
+    document.addEventListener('DOMContentLoaded', function () {
+      document.removeEventListener('DOMContentLoaded', arguments.callee, false);
 
       // Instantiate a counter
-      clock = new FlipClock($('.clock'), 10, {
+      clock = new FlipClock(document.querySelector('.clock'), 10, {
         clockFace: 'Counter',
         autoStart: true,
         countdown: true
       });
-
     });
   </script>
 

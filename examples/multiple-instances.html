@@ -19,13 +19,14 @@
   <script type="text/javascript">
     var clocks = [];
 
-    $(document).ready(function () {
+    document.addEventListener('DOMContentLoaded', function () {
+      document.removeEventListener('DOMContentLoaded', arguments.callee, false);
 
-      clocks.push($('.clock-1').FlipClock({
+      clocks.push(new FlipClock(document.querySelector('.clock-1'), {
         clockFace: 'MinuteCounter'
       }));
 
-      clocks.push($('.clock-2').FlipClock({
+      clocks.push(new FlipClock(document.querySelector('.clock-2'), {
         clockFace: 'HourlyCounter'
       }));
 

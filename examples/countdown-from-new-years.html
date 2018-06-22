@@ -13,8 +13,8 @@
 
   <script type="text/javascript">
     var clock;
-
-    $(document).ready(function () {
+    document.addEventListener('DOMContentLoaded', function () {
+      document.removeEventListener('DOMContentLoaded', arguments.callee, false);
 
       // Grab the current date
       var currentDate = new Date();
@@ -26,7 +26,7 @@
       var diff = currentDate.getTime() / 1000 - pastDate.getTime() / 1000;
 
       // Instantiate a coutdown FlipClock
-      clock = $('.clock').FlipClock(diff, {
+      clock = new FlipClock(document.querySelector('.clock'), diff, {
         clockFace: 'DailyCounter'
       });
     });

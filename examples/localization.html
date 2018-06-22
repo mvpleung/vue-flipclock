@@ -14,8 +14,9 @@
   <script type="text/javascript">
     var clock;
 
-    $(document).ready(function () {
-      clock = $('.clock').FlipClock({
+    document.addEventListener('DOMContentLoaded', function () {
+      document.removeEventListener('DOMContentLoaded', arguments.callee, false);
+      clock = new FlipClock(document.querySelector('.clock'), {
         clockFace: 'DailyCounter',
         language: 'es'
       });

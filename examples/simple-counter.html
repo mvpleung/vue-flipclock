@@ -20,15 +20,16 @@
   <script type="text/javascript">
     var clock;
 
-    $(document).ready(function () {
+    document.addEventListener('DOMContentLoaded', function () {
+      document.removeEventListener('DOMContentLoaded', arguments.callee, false);
 
       // Instantiate a counter
-      clock = new FlipClock($('.clock'), 101, {
+      clock = new FlipClock(document.querySelector('.clock'), 101, {
         clockFace: 'Counter'
       });
 
       // Attach a click event to a button a increment the clock
-      $('.increment').click(function () {
+      document.querySelector('.increment').addEventListener('click', function () {
         //clock.setValue(10);
 
         // Or you could decrease the clock
@@ -41,11 +42,11 @@
       });
 
       // Attach a click event to a button a decrement the clock
-      $('.decrement').click(function () {
+      document.querySelector('.decrement').addEventListener('click', function () {
         clock.decrement();
       });
 
-      $('.reset').click(function () {
+      document.querySelector('.reset').addEventListener('click', function () {
         clock.reset();
       });
 

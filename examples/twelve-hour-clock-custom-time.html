@@ -14,10 +14,11 @@
   <script type="text/javascript">
     var clock;
 
-    $(document).ready(function () {
+    document.addEventListener('DOMContentLoaded', function () {
+      document.removeEventListener('DOMContentLoaded', arguments.callee, false);
       var date = new Date('2014-01-01 05:02:12 pm');
 
-      clock = $('.clock').FlipClock(date, {
+      clock = new FlipClock(document.querySelector('.clock'), date, {
         clockFace: 'TwelveHourClock'
       });
     });

@@ -42,7 +42,7 @@ export default {
   },
   data() {
     return {
-      flipclock: {},
+      clock: {},
       convert: {
         days: 'hours',
         hours: 'minutes',
@@ -123,6 +123,12 @@ export default {
     },
     flip(doNotAddPlayClass) {
       this.clock && this.clock.flip(doNotAddPlayClass);
+    },
+    increment() {
+      this.clock && this.clock.increment();
+    },
+    decrement() {
+      this.clock && this.clock.decrement();
     }
   }
 };
