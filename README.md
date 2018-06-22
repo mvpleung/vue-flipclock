@@ -38,6 +38,15 @@ export default {
 
 ### Documentation
 
+|Field|Type|Description|
+|---|----|----|
+|**digit**|`Number` |`An integer used to start the clock`|
+|**Options**|`Object`| `flipclock configuration`|
+
+---
+
+### Options
+
 Website and documentation at http://flipclockjs.com/
 
 |Field|Type|Description|
@@ -46,7 +55,7 @@ Website and documentation at http://flipclockjs.com/
 |**label**|`Boolean`| `Whether or not a time label is displayed`|
 |**dot**|`Boolean`|`Whether the time division dots are displayed`|
 |**divider**|`Object`, |`Time partition configuration, See below Divider Options`|
-|**...**|`...`|`http://flipclockjs.com/`|
+|**...**|`...`|`http://flipclockjs.com`|
 
 ---
 
