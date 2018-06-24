@@ -55,8 +55,8 @@ export default {
 
 |Field|Type|Description|
 |---|----|----|
-|**digit**|`Number`|`deprecated` `An integer used to start the clock(Use Options.digit instead)`|
-|**Options**|`Object`| `flipclock configuration`|
+|**digit**|`Number`|`deprecated`, An integer used to start the clock(Use `Options.digit` instead)|
+|**Options**|`Object`| flipclock configuration|
 
 ---
 
