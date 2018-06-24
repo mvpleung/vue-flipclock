@@ -493,7 +493,7 @@ var FlipClock;
      */
 
     appendDigitToClock: function(obj) {
-      obj.$el.append(false);
+      // obj.$el.append(false);
     },
 
     /**
@@ -563,19 +563,20 @@ var FlipClock;
     flip: function(time, doNotAddPlayClass) {
       var t = this;
 
-      time.forEach(function(digit, i) {
-        var list = t.lists[i];
+      Array.isArray(time) &&
+        time.forEach(function(digit, i) {
+          var list = t.lists[i];
 
-        if (list) {
-          if (!doNotAddPlayClass && digit !== list.digit) {
-            list.play();
+          if (list) {
+            if (!doNotAddPlayClass && digit !== list.digit) {
+              list.play();
+            }
+
+            list.select(digit);
+          } else {
+            t.addDigit(digit);
           }
-
-          list.select(digit);
-        } else {
-          t.addDigit(digit);
-        }
-      });
+        });
     }
   });
 })();

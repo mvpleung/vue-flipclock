@@ -3,7 +3,7 @@
  * @Author: liangzc 
  * @Date: 2018-06-08 10:19:55 
  * @Last Modified by: liangzc
- * @Last Modified time: 2018-06-08 13:52:46
+ * @Last Modified time: 2018-06-24 12:36:13
  */
  <template>
   <div ref="flipclock"
@@ -42,7 +42,7 @@ export default {
   },
   data() {
     return {
-      clock: {},
+      clock: null,
       convert: {
         days: 'hours',
         hours: 'minutes',
@@ -53,15 +53,28 @@ export default {
   },
   created() {
     this.$nextTick(() => {
-      let options = this.options || {};
-      !options.hasOwnProperty('autoStart') && (options.autoStart = true);
-      this.clock = new FlipClock(this.$refs.flipclock, this.digit, options);
+      this.init(this.options);
+    });
+  },
+  methods: {
+    init(options) {
+      options = options || {};
+      this.destroyClock();
+      this.clock = new FlipClock(
+        this.$refs.flipclock,
+        options.digit !== undefined ? options.digit : this.digit,
+        Object.assign({}, options, {
+          autoStart: options.hasOwnProperty('autoStart') ?
+            options.autoStart :
+            true
+        })
+      );
       if (
         options.divider &&
         Object.prototype.toString.call(options.divider) === '[object Object]'
       ) {
-        for (let key in options.divider) {
-          let el = document.querySelector(
+        for (var key in options.divider) {
+          var el = document.querySelector(
             `.flip-clock-divider.${this.convert[key]}`
           );
           if (el) {
@@ -78,21 +91,13 @@ export default {
         }
       }
       options.time && this.clock.setTime(options.time);
-      options.time && options.autoStart && this.clock.start();
-    });
-  },
-  methods: {
-    on(event, callback) {
-      this.clock && this.clock.on(event, callback);
+      options.time && this.clock.autoStart && this.clock.start();
     },
-    once(event, callback) {
-      this.clock && this.clock.once(event, callback);
-    },
-    off(event) {
-      this.clock && this.clock.off(event);
+    instance() {
+      return this.clock;
     },
     trigger(event, params) {
-      this.clock && this.clock.trigger(event, params);
+      this.clock && this.clock[event] && this.clock[event](arguments.slice(1));
     },
     start(callback) {
       this.clock && this.clock.start(callback);
@@ -100,17 +105,28 @@ export default {
     stop(callback) {
       this.clock && this.clock.stop(callback);
     },
-    reset(callback) {
+    reset(options, callback) {
+      if (typeof options === 'function') {
+        callback = options;
+        options = null;
+      }
       this.clock && this.clock.reset(callback);
+      if (options) {
+        options.digit = options.digit !== undefined ? options.digit : 0;
+        this.init(options);
+      }
     },
-    getFaceValue() {
-      this.clock ? this.clock.getFaceValue() : null;
+    increment() {
+      this.clock && this.clock.increment();
     },
-    setFaceValue(value) {
-      this.clock && this.clock.setFaceValue(value);
+    decrement() {
+      this.clock && this.clock.decrement();
     },
-    getCountdown() {
-      this.clock ? this.clock.getCountdown() : false;
+    loadClockFace(name, options) {
+      this.clock && this.clock.loadClockFace(name, options);
+    },
+    loadLanguage(name) {
+      this.clock && this.clock.loadLanguage(name);
     },
     setCountdown(value) {
       this.clock && this.clock.setCountdown(value);
@@ -121,15 +137,18 @@ export default {
     setTime(value) {
       this.clock && this.clock.setTime(value);
     },
-    flip(doNotAddPlayClass) {
-      this.clock && this.clock.flip(doNotAddPlayClass);
+    setOptions(options) {
+      this.clock && this.clock.setOptions(options);
     },
-    increment() {
-      this.clock && this.clock.increment();
-    },
-    decrement() {
-      this.clock && this.clock.decrement();
+    destroyClock() {
+      if (this.clock) {
+        this.clock.stop();
+        this.clock = null;
+      }
     }
+  },
+  beforeDestroy() {
+    this.destroyClock();
   }
 };
 </script>

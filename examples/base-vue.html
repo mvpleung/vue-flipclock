@@ -1,0 +1,54 @@
+<html>
+
+<head>
+  <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+  <script src="../dist/index.js"></script>
+  <style>
+    #app {
+      margin-top: 2rem;
+    }
+
+    button {
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div>
+      <flip-clock ref="flipclock" v-if="diff > 0" :options="options" :digit="diff" />
+    </div>
+    <button v-if="diff > 0" @click="reset">reset with options</button>
+  </div>
+  <script type="text/javascript">
+    var app = new Vue({
+      el: '#app',
+      data() {
+        return {
+          diff: 0,
+          options: {}
+        }
+      },
+      mounted() {
+        var currentDate = new Date();
+        var pastDate = new Date(currentDate.getFullYear(), 0, 1);
+        this.diff = currentDate.getTime() / 1000 - pastDate.getTime() / 1000;
+        this.options.clockFace = 'DailyCounter'
+        this.options.countdown = true;
+      },
+      methods: {
+        reset() {
+          this.$refs.flipclock.reset({
+            digit: 60,
+            countdown: true,
+            clockFace: 'Counter'
+          });
+        }
+      }
+    })
+  </script>
+
+</body>
+
+</html>

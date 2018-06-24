@@ -487,7 +487,7 @@ FlipClock.Face = FlipClock.Base.extend({
    */
 
   appendDigitToClock: function(obj) {
-    obj.$el.append(false);
+    // obj.$el.append(false);
   },
 
   /**
@@ -557,7 +557,7 @@ FlipClock.Face = FlipClock.Base.extend({
   flip: function(time, doNotAddPlayClass) {
     var t = this;
 
-    time.forEach(function(digit, i) {
+    Array.isArray(time) && time.forEach(function(digit, i) {
       var list = t.lists[i];
 
       if (list) {

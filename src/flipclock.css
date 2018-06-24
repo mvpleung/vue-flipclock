@@ -52,26 +52,31 @@
   -webkit-box-orient: horizontal;
   -webkit-box-pack: center;
   -webkit-box-align: center;
+  -webkit-justify-content: center;
 
   display: -moz-box;
   -moz-box-orient: horizontal;
   -moz-box-pack: center;
   -moz-box-align: center;
+  -moz-justify-content: center;
 
   display: -o-box;
   -o-box-orient: horizontal;
   -o-box-pack: center;
   -o-box-align: center;
+  -o-justify-content: center;
 
   display: -ms-box;
   -ms-box-orient: horizontal;
   -ms-box-pack: center;
   -ms-box-align: center;
+  -ms-justify-content: center;
 
-  display: box;
+  display: flex;
   box-orient: horizontal;
   box-pack: center;
   box-align: center;
+  justify-content: center;
 }
 
 .flip-clock-meridium {

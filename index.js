@@ -1,12 +1,15 @@
 import FlipClock from './src/flipclock.vue';
 import FlipclockModule from './src/flipclock.module.min';
+import FlipclockJs from './src/flipclock.min';
 
 const install = Vue => {
+  if (install.installed) return;
   Vue.component('FlipClock', FlipClock);
 };
 
-export default {
-  install
-};
+if (typeof window !== 'undefined' && window.Vue) {
+  install(window.Vue);
+}
 
-export { FlipClock, FlipclockModule };
+export default install;
+export { FlipClock, FlipclockModule, FlipclockJs };
