@@ -3,7 +3,7 @@
  * @Author: liangzc 
  * @Date: 2018-06-08 10:19:55 
  * @Last Modified by: liangzc
- * @Last Modified time: 2018-06-24 12:36:13
+ * @Last Modified time: 2018-06-30 13:37:04
  */
  <template>
   <div ref="flipclock"
@@ -55,6 +55,17 @@ export default {
     this.$nextTick(() => {
       this.init(this.options);
     });
+  },
+  watch: {
+    options: {
+      handler(val) {
+        this.reset(val);
+      },
+      deep: true
+    },
+    digit(val) {
+      console.warn('deprecated. please use `options.digit` instead');
+    }
   },
   methods: {
     init(options) {

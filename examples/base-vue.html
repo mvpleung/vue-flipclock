@@ -17,25 +17,27 @@
 <body>
   <div id="app">
     <div>
-      <flip-clock ref="flipclock" v-if="diff > 0" :options="options" :digit="diff" />
+      <flip-clock ref="flipclock" :options="options" />
     </div>
-    <button v-if="diff > 0" @click="reset">reset with options</button>
+    <button @click="reset">reset with options</button>
+    <button @click="changeOptions">change options</button>
   </div>
   <script type="text/javascript">
     var app = new Vue({
       el: '#app',
       data() {
         return {
-          diff: 0,
-          options: {}
+          options: {
+            digit: 0,
+            countdown: true,
+            clockFace: 'DailyCounter',
+          }
         }
       },
-      mounted() {
+      created() {
         var currentDate = new Date();
         var pastDate = new Date(currentDate.getFullYear(), 0, 1);
-        this.diff = currentDate.getTime() / 1000 - pastDate.getTime() / 1000;
-        this.options.clockFace = 'DailyCounter'
-        this.options.countdown = true;
+        this.options.digit = currentDate.getTime() / 1000 - pastDate.getTime() / 1000;
       },
       methods: {
         reset() {
@@ -44,6 +46,10 @@
             countdown: true,
             clockFace: 'Counter'
           });
+        },
+        changeOptions() {
+          this.options.clockFace = 'Counter';
+          this.options.digit = 60;
         }
       }
     })
