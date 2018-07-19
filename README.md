@@ -68,7 +68,8 @@ Website and documentation at http://flipclockjs.com/
 | **label**   | `Boolean` | Whether or not a time label is displayed                                  |
 | **dot**     | `Boolean` | Whether the time division dots are displayed                              |
 | **divider** | `Object`  | Time partition configuration, See below `Divider Options`                 |
-| **...**     | `...`     | `http://flipclockjs.com`                                                  |
+| **clockFace** | `String`  | This is the name of the clock that is used to build the clock display. The default value is HourlyCounter                 |
+| **...**     | `...`     | More configuration to see here [http://flipclockjs.com](http://flipclockjs.com)                                                  |
 
 ---
 
@@ -87,7 +88,7 @@ Website and documentation at http://flipclockjs.com/
 
 > this.$refs.flipclcok.start();
 
-| Field             | Params               | Description                                                                                                                                                                    |
+| Method             | Params               | Description                                                                                                                                                                    |
 | ----------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **trigger**       | `event`,`params`     | Trigger FlipClock Method                                                                                                                                                       |
 | **start**         | `callback`           | Start the clock                                                                                                                                                                |
