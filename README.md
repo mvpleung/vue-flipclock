@@ -69,6 +69,7 @@ Website and documentation at http://flipclockjs.com/
 | **dot**     | `Boolean` | Whether the time division dots are displayed                              |
 | **divider** | `Object`  | Time partition configuration, See below `Divider Options`                 |
 | **clockFace** | `String`  | This is the name of the clock that is used to build the clock display. The default value is HourlyCounter                 |
+| **showSeconds** | `Boolean`  | Display seconds. The default value is true                 |
 | **...**     | `...`     | More configuration to see here [http://flipclockjs.com](http://flipclockjs.com)                                                  |
 
 ---
