@@ -22,9 +22,9 @@ FlipClock.js can be installed in the following ways:
 
 ### Demo & Documentation
 
-[Example](./examples)
+[Example](https://github.com/mvpleung/vue-flipclock/tree/master/examples)
 
-[Vue Script Example](./examples/base-vue.html)
+[Vue Script Example](https://github.com/mvpleung/vue-flipclock/tree/master/examples/base-vue.html)
 
 Website and documentation at http://flipclockjs.com/
 
