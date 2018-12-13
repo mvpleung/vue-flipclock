@@ -61,16 +61,16 @@ export default {
 
 Website and documentation at http://flipclockjs.com/
 
-| Field       | Type      | Description                                                               |
-| ----------- | --------- | ------------------------------------------------------------------------- |
-| **time**    | `Number`  | Source of time                                                            |
-| **digit**   | `Number`  | An integer used to start the clock(For Example: `countdown-to-new-years`) |
-| **label**   | `Boolean` | Whether or not a time label is displayed                                  |
-| **dot**     | `Boolean` | Whether the time division dots are displayed                              |
-| **divider** | `Object`  | Time partition configuration, See below `Divider Options`                 |
-| **clockFace** | `String`  | This is the name of the clock that is used to build the clock display. The default value is HourlyCounter                 |
-| **showSeconds** | `Boolean`  | Display seconds. The default value is true                 |
-| **...**     | `...`     | More configuration to see here [http://flipclockjs.com](http://flipclockjs.com)                                                  |
+| Field           | Type      | Description                                                                                               |
+| --------------- | --------- | --------------------------------------------------------------------------------------------------------- |
+| **time**        | `Number`  | Source of time                                                                                            |
+| **digit**       | `Number`  | An integer used to start the clock(For Example: `countdown-to-new-years`)                                 |
+| **label**       | `Boolean` | Whether or not a time label is displayed                                                                  |
+| **dot**         | `Boolean` | Whether the time division dots are displayed                                                              |
+| **divider**     | `Object`  | Time partition configuration, See below `Divider Options`                                                 |
+| **clockFace**   | `String`  | This is the name of the clock that is used to build the clock display. The default value is HourlyCounter |
+| **showSeconds** | `Boolean` | Display seconds. The default value is true                                                                |
+| **...**         | `...`     | More configuration to see here [http://flipclockjs.com](http://flipclockjs.com)                           |
 
 ---
 
@@ -87,9 +87,9 @@ Website and documentation at http://flipclockjs.com/
 
 ### Instance Methods
 
-> this.$refs.flipclcok.start();
+> this.\$refs.flipclcok.start();
 
-| Method             | Params               | Description                                                                                                                                                                    |
+| Method            | Params               | Description                                                                                                                                                                    |
 | ----------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **trigger**       | `event`,`params`     | Trigger FlipClock Method                                                                                                                                                       |
 | **start**         | `callback`           | Start the clock                                                                                                                                                                |
@@ -101,6 +101,28 @@ Website and documentation at http://flipclockjs.com/
 | **getTime**       |                      | This method will get the current FlipFactory.Time object.                                                                                                                      |
 | **setTime**       | `time`               | This method will set the time on the clock by passing a value which will be passed to the FlipFactory.Time object.                                                             |
 | **instance**      |                      | This method will get the current FlipClock object.                                                                                                                             |
+
+---
+
+### Callbacks
+
+> this.\$refs.flipclock.Method(callback)
+
+```js
+...
+  stop() {
+    this.$refs.flipclock.stop(() => {
+    alert('Stop !');
+    })
+  },
+  stopReset() {
+    this.$refs.flipclock.stop(() => {
+    alert('Stop !');
+    this.reset();
+    })
+  }
+...
+```
 
 ---
 

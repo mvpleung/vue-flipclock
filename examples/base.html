@@ -9,6 +9,7 @@
 <body>
   <div class="clock" style="margin:2em;"></div>
   <div class="message"></div>
+  <button onclick="stop">Stop</button>
 
   <script type="text/javascript">
     var clock = new FlipClock(document.querySelector('.clock'), {
@@ -24,6 +25,12 @@
     clock.setTime(220880);
     clock.setCountdown(true);
     clock.start();
+
+	document.querySelector('button').addEventListener('click', function() {
+		clock && clock.stop(function() {
+			alert('Stop');
+		})
+	})
   </script>
 
 </body>

@@ -21,6 +21,8 @@
     </div>
     <button @click="reset">reset with options</button>
     <button @click="changeOptions">change options</button>
+    <button @click="stop">stop</button>
+    <button @click="stopReset">stop and reset</button>
   </div>
   <script type="text/javascript">
     var app = new Vue({
@@ -50,7 +52,18 @@
         changeOptions() {
           this.options.clockFace = 'Counter';
           this.options.digit = 60;
-        }
+        },
+		stop() {
+		  this.$refs.flipclock.stop(() => {
+			alert('Stop !');
+		  })
+		},
+		stopReset() {
+		  this.$refs.flipclock.stop(() => {
+			alert('Stop !');
+			this.reset();
+		  })
+		}
       }
     })
   </script>
