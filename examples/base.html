@@ -18,11 +18,14 @@
       callbacks: {
         stop: function () {
           document.querySelector('.message').innerHTML = 'The clock has stopped!';
-        }
+        },
+		reset: function() {
+		alert('123123')
+	}
       }
     });
 
-    clock.setTime(220880);
+    clock.setTime(15);
     clock.setCountdown(true);
     clock.start();
 

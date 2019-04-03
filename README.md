@@ -70,6 +70,7 @@ Website and documentation at http://flipclockjs.com/
 | **divider**     | `Object`  | Time partition configuration, See below `Divider Options`                                                 |
 | **clockFace**   | `String`  | This is the name of the clock that is used to build the clock display. The default value is HourlyCounter |
 | **showSeconds** | `Boolean` | Display seconds. The default value is true                                                                |
+| **callbacks** | `Object` | Options: [ init: Function, create: Function, interval: Function, start: Function, stop: Function, reset: Function, destroy: Function ]                                  |
 | **...**         | `...`     | More configuration to see here [http://flipclockjs.com](http://flipclockjs.com)                           |
 
 ---
@@ -104,7 +105,7 @@ Website and documentation at http://flipclockjs.com/
 
 ---
 
-### Callbacks
+### Method Callbacks
 
 > this.\$refs.flipclock.Method(callback)
 
@@ -120,6 +121,26 @@ Website and documentation at http://flipclockjs.com/
     alert('Stop !');
     this.reset();
     })
+  }
+...
+```
+
+---
+
+### FlipClock Callbacks
+
+```js
+...
+  options: {
+	digit: 15,
+	countdown: true,
+	clockFace: 'DailyCounter',
+	...
+	callbacks: {
+		stop: function () {
+			alert('The clock has stopped!')
+		}
+	}
   }
 ...
 ```

@@ -30,16 +30,21 @@
       data() {
         return {
           options: {
-            digit: 0,
+            digit: 15,
             countdown: true,
             clockFace: 'DailyCounter',
+			callbacks: {
+				stop: function () {
+					alert('The clock has stopped!')
+				}
+			}
           }
         }
       },
       created() {
         var currentDate = new Date();
         var pastDate = new Date(currentDate.getFullYear(), 0, 1);
-        this.options.digit = currentDate.getTime() / 1000 - pastDate.getTime() / 1000;
+        //this.options.digit = currentDate.getTime() / 1000 - pastDate.getTime() / 1000;
       },
       methods: {
         reset() {
