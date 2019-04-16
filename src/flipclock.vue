@@ -143,7 +143,7 @@ export default {
       this.clock && this.clock.setCountdown(value);
     },
     getTime() {
-      this.clock ? this.clock.getTime() : 0;
+      return this.clock ? this.clock.getTime().time : 0;
     },
     setTime(value) {
       this.clock && this.clock.setTime(value);
